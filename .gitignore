@@ -1,0 +1,12 @@
+node_modules/
+client/dist/
+client/.vite/
+bin/
+obj/
+wwwroot/assets/
+.vscode/
+.idea/
+.vs/
+*.user
+*.suo
+*.sln.docstates
