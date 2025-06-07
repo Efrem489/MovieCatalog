@@ -5,4 +5,4 @@
 ## Tech Stack
 - **Frontend**: React, TypeScript, Vite, Tailwind CSS, Headless UI, Framer Motion
 - **Backend**: ASP.NET Core, Entity Framework Core (PostgreSql)
-- **Tools**: Git
+- **Tools**: Git, Visual Studio 2022, Swagger
