@@ -1,8 +1,40 @@
 # Каталог фильмов
 
-Отзывчивое одностраничное приложение (SPA) для просмотра фильмов, созданное с использованием **React**, **TypeScript**, **Vite**, **Tailwind CSS** и **Headless UI**, интегрированное с API **ASP.NET Core**.
+Отзывчивое одностраничное приложение (SPA) для просмотра и поиска фильмов, созданное с использованием React и интегрированное с API ASP.NET Core.
 
-## Tech Stack
-- **Frontend**: React, TypeScript, Vite, Tailwind CSS, Headless UI, Framer Motion
-- **Backend**: ASP.NET Core, Entity Framework Core (PostgreSql)
-- **Tools**: Git, Visual Studio 2022, Swagger
+## Технологический стек
+
+### Фронтенд
+- **React** (функциональные компоненты, хуки)
+- **Vite** (сборка проекта)
+- **CSS Modules** (стилизация компонентов)
+- **Адаптивный дизайн** (полная поддержка мобильных устройств)
+
+### Бэкенд
+- **ASP.NET Core** (веб-API)
+- **Entity Framework Core** (работа с базой данных)
+- **PostgreSQL** (хранение данных)
+
+### Инструменты
+- **Visual Studio 2022** (разработка бэкенда)
+- **Swagger** (документирование API)
+
+## Функциональность
+
+- Просмотр каталога фильмов
+- Поиск по названию фильма
+- Фильтрация по жанрам
+- Детальная информация о фильме
+- Адаптивный интерфейс
+
+## Установка и запуск
+
+### Бэкенд (ASP.NET Core)
+1. Убедитесь, что установлены:
+   - [.NET 6 SDK](https://dotnet.microsoft.com/download)
+   - [PostgreSQL](https://www.postgresql.org/download/)
+2. Клонируйте репозиторий
+3. Настройте строку подключения в `appsettings.json`
+4. Выполните миграции:
+   ```bash
+   dotnet ef database update
