@@ -7,6 +7,7 @@ namespace MovieCatalogApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Produces("application/json")]
     public class MoviesController : ControllerBase
     {
         private readonly MovieContext _context;

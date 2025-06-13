@@ -4,7 +4,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = null; // Отключаем camelCase, если нужно
+});
 builder.Services.AddDbContext<MovieContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddCors(options =>
@@ -31,6 +34,11 @@ app.UseCors("AllowAll");
 app.UseAuthorization();
 
 app.UseStaticFiles();
+app.Use(async (context, next) =>
+{
+    context.Response.Headers["Content-Type"] = "text/html; charset=utf-8";
+    await next();
+});
 
 app.MapControllers();
 

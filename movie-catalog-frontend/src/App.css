@@ -1,0 +1,213 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Основные стили */
+:root {
+    --primary-dark: #0a192f;
+    --primary-blue: #172a45;
+    --secondary-blue: #303f60;
+    --accent-blue: #64ffda;
+    --text-light: #ccd6f6;
+    --text-lighter: #e6f1ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    background-color: var(--primary-blue);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+    .app-header h1 {
+        color: var(--text-lighter);
+        font-size: 2rem;
+    }
+
+.filters {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--primary-blue);
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+}
+
+.movie-list {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    align-items: start; /* Выравниваем карточки по верху */
+}
+
+.movie-card {
+    background: var(--secondary-blue);
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    height: auto; /* Убираем фиксированную высоту */
+    min-height: 100px; /* Минимальная высота */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .movie-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .movie-card h3 {
+        color: var(--text-lighter);
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        /* Добавляем перенос текста */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Ограничиваем до 2 строк */
+        -webkit-box-orient: vertical;
+    }
+
+    .movie-card p {
+        color: var(--text-light);
+        opacity: 0.8;
+        font-size: 0.9rem;
+        margin-top: auto; /* Прижимаем к низу карточки */
+        padding-top: 8px; /* Отступ от текста выше */
+    }
+
+.movie-details {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 350px;
+    background: var(--secondary-blue);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    z-index: 100;
+    color: var(--text-light);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+    .movie-details h2 {
+        color: var(--text-lighter);
+        margin-bottom: 15px;
+        border-bottom: 1px solid var(--accent-blue);
+        padding-bottom: 10px;
+    }
+
+    .movie-details p {
+        margin-bottom: 10px;
+    }
+
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+    .close-btn:hover {
+        color: var(--accent-blue);
+    }
+
+.loading, .no-results {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+    color: var(--text-light);
+}
+
+/* Стили для поиска и фильтров */
+.search-bar input {
+    padding: 10px 15px;
+    border: 1px solid var(--secondary-blue);
+    border-radius: 4px;
+    width: 250px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+}
+
+    .search-bar input::placeholder {
+        color: var(--text-light);
+        opacity: 0.6;
+    }
+
+.genre-filter select {
+    padding: 10px;
+    border: 1px solid var(--secondary-blue);
+    border-radius: 4px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    cursor: pointer;
+}
