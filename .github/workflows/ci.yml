@@ -1,0 +1,50 @@
+name: CI/CD for MovieCatalog
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Setup .NET Core
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      # Restore .NET dependencies
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # Build the .NET project
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      # Setup Node.js for React
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Install React dependencies
+      - name: Install React dependencies
+        run: npm install
+        working-directory: ./movie-catalog-frontend 
+
+      # Build React app
+      - name: Build React
+        run: npm run build
+        working-directory: ./movie-catalog-frontend
