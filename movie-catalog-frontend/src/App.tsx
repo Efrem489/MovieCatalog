@@ -6,7 +6,6 @@ import GenreFilter from './components/GenreFilter';
 import MovieCard from './components/MovieCard';
 import MovieDetails from './components/MovieDetails';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiStar, FiX } from 'react-icons/fi';
 import './App.css';
 import { Movie, ApiMovie } from './types';
 
